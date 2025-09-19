@@ -1,11 +1,13 @@
 // import {Button} from "@/src/shared/shadcn-ui/ui/button";
-import {Button} from "@/ui/ui/button;
+import {Test} from "@/app/_test/test";
+import {Button} from "ui";
 
 export default function Home() {
   return (
       <div
           className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-        <Button>dd</Button>
+        <Button size={"lg"}>dd</Button>
+        <Test/>
       </div>
   );
 }
