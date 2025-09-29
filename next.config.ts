@@ -1,5 +1,11 @@
 import type {NextConfig} from "next";
-import path from "node:path";
+import {dirname} from "path";
+import {FlatCompat} from "@eslint/eslintrc";
+
+const __dirname = dirname(__filename);
+const compat = new FlatCompat({
+  baseDirectory: __dirname,
+});
 
 
 const nextConfig: NextConfig = {
@@ -7,7 +13,10 @@ const nextConfig: NextConfig = {
   webpack: (config) => {
     config.resolve.alias = {
       ...(config.resolve.alias || {}),
-      ui: path.resolve(__dirname, "/src/shared/shadcn-ui"),
+      ui: compat.extends(
+          "/src/shared/shadcn-ui"
+      )
+      // ui: path.resolve(__dirname, "/src/shared/shadcn-ui"),
     }
     return config;
   }
